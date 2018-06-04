@@ -38,19 +38,19 @@ class FollowUp(ClinicalAssessmentModelMixin, CrfModelMixin):
         decimal_places=3,
         max_digits=4,
         null=True)
-
+ 
     antibiotics = models.CharField(
         verbose_name='Since week two, were any of the following antibiotics given?',
         max_length=5,
         choices=YES_NO_NA,
         null=True)
-
+ 
     blood_transfusions = models.CharField(
         verbose_name='Has the patient had any blood transfusions since week two? ',
         max_length=5,
         choices=YES_NO,
         null=True)
-
+ 
     blood_transfusions_units = models.DecimalField(
         verbose_name='If YES, no. of units?    ',
         decimal_places=3,
