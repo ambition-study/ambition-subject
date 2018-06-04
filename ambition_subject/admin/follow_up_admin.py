@@ -53,6 +53,7 @@ class FollowUpAdmin(CrfModelAdminMixin, admin.ModelAdmin):
         ('Clinical Assessment', {
             'fields': (
                 'subject_visit',
+                'report_datetime',
                 'physical_symptoms',
                 'headache',
                 'glasgow_coma_score',
