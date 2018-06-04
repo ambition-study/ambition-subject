@@ -41,6 +41,18 @@ class TestSubjectConsent(AmbitionTestCaseMixin, TestCase):
         mommy.make_recipe('ambition_subject.subjectconsent', **options)
         self.assertEquals(RegisteredSubject.objects.all().count(), 1)
 
+#     def test_screening_datetime_updated_on_registered_subject(self):
+#         options = {
+#             'screening_identifier': self.subject_screening.screening_identifier,
+#             'consent_datetime': get_utcnow, }
+#         self.assertEquals(RegisteredSubject.objects.all().count(), 0)
+#         subject_consent = mommy.make_recipe('ambition_subject.subjectconsent', **options)
+#         registered_subject = RegisteredSubject.objects.get(
+#             subject_identifier=subject_consent.subject_identifier)
+#         self.assertEquals(
+#             registered_subject.screening_datetime, self.subject_screening.report_datetime)
+
+
     def test_onschedule_created_on_consent(self):
         subject_consent = mommy.make_recipe(
             'ambition_subject.subjectconsent',
