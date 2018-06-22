@@ -19,9 +19,10 @@ visual_acuity_fieldset = Fieldset(
 hospitilization_and_drugs_fieldset = Fieldset(
     'days_hospitalized',
     'antibiotics',
+    'antibiotic_other',
     'blood_transfusions',
     'blood_transfusions_units',
-    section='Hospitilization and Drugs')
+    section='Hospitalization and Drugs')
 
 
 class FollowUpDiagnosesInline(TabularInlineMixin, admin.TabularInline):
@@ -87,5 +88,4 @@ class FollowUpAdmin(CrfModelAdminMixin, admin.ModelAdmin):
         'patient_help': admin.VERTICAL,
         'patient_problems': admin.VERTICAL,
         'rankin_score': admin.VERTICAL,
-        'antibiotics': admin.VERTICAL,
         'blood_transfusions': admin.VERTICAL, }
