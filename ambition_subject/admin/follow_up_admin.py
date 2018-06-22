@@ -18,7 +18,7 @@ visual_acuity_fieldset = Fieldset(
 
 hospitilization_and_drugs_fieldset = Fieldset(
     'days_hospitalized',
-    'antibiotics',
+    'antibiotic',
     'antibiotic_other',
     'blood_transfusions',
     'blood_transfusions_units',
