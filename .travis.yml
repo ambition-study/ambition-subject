@@ -1,36 +1,25 @@
 language: python
-
 python:
-- 3.6
-
-services:
-- mysql
-
+- '3.6'
 addons:
   apt_packages:
-     - libcups2-dev
-
-branches:
-  only:
-  - develop
-
+  - libcups2-dev
+services:
+- mysql
 install:
 - pip install --upgrade pip
-- pip install pycups
-- pip install -r requirements.txt
 - pip install flake8
 - pip install coveralls
-
+- pip install mysqlclient
+- pip install -e .
+- pip install -q -r requirements.txt
 before_script:
 - flake8 ambition_subject
 - mysql -e 'create database edc character set utf8;'
-
 script:
 - coverage run --source=ambition_subject manage.py test
-
 after_success:
 - coveralls
-
 notifications:
   slack:
-    secure: TTsJHovp0lXmrks/D8+X7LHRO8K+TOEQX6+POTsMz8F1i0fuDhY18fN2/R4bQLDigo7+blHNr7fP4t4pLj36fPqPTfv8wRktG4CCOJOucI03Q6buMmcR5/1BsRJEZFytnsyme/T+wWTowlv/r4u3XbHV9Q3JAceFNY6hJnQa9ahpkfk/Vy2PfV8XRSYybvFTZLj0D+4pBcTYaAeye6azXKKadM4m70vGDOKTlyBEGyZmeefAovnaGLcollo1N5E8vGaD3AIaXZLYmWQky2y9cBkVirqLUXE3XneWGN7yne+LtSRGMiGCKrw+thZ8NHrcMBSYNiFPmRise6nh9zprQIVjzUOoSw3w3EWPV/tKduNEvXs26tQGAw9JSkEONA6Wg36fTssCOnl6jDj911WP5nMnCwTEQjMIBvZTt7b+YKpaNqvI1oKB/OL+uSQ8m10UpdEvZRcex3PXNc21ic//KoEG0Zew29wBISaxb9cD/oCpSGL/BU4cbvWuUYPuvd5iwfUmGP2T7fGvA8mXyUMXm62Zjh2U939IbY/FHsjxpvmYbkIP184pxx7Ldem+spQomZGsQcSE6Z5ETq0Z7YCXgqp+HWkGcY4pwEGzwTZssP6ZP/JWFbaRUTGxkQFpCPjfDGZI037anA8LAMJMbG5+kIwOzA9fUhBx7zMYr3VMAkg=
+    secure: ZNThvznIzaFteA73+WtgI7ub/MuKVqQhajMquTCZp9vi0sNIa3fz/hKRO11C6y/Vm6OPzpuKAxMfhYK8rJT3t/LAxk/ocnSlQER7jjO0/Ry3s0lAbWQpKzxL3UlgpcplupIAJ23gJvSqD2XNbRYyvdByJWD88u1Ht2C8E78TvIheO3Y9bML/CpEVykkeXYZKSYyRGcLAFsi4dpKmp7rGSAr3dQym5lJ8+aQ+KEsCB3STzAn7/OxYzFwPL9nbn/aS5Io8P5v3Rx38CSbOI1BatLK9FFNXGnkoKZUa3mVYQwoe7wnxeg6tg+QVan+EKH0TJzaUDjsZZ7u8CKyLsEr16o6c4TuHAc6o1baV25nFDEkmrsSIFvYqUeI8UN4tD+VHIFXZnBSFABpmHHLB75yni5k8DcQwk1nz5r+e8hGID38YKMWEs/xTzF9Gmyff+wj+Jt9w1Wzu3HMyCIip21Vl4V7mFXFfQSnnRtqNlcwpw8d0nEKg8iG7Knx5Visb5rjcYyb+vT2M90cTyrKdP09RQwiZB58rmSVjQYklB+m1sInzVTZs8rqiEAmzt1JJ0BsWmmdg4D+bWFxA8jXDx10WG2ms5oBuyAndkHCyxXCQLDmNi3CaKZdhqf3NWWpCLTUZUBhTbDSYDjCLXv3KTd1AhTQLcxWd7t7+bLHTz8BlLY0=

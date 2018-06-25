@@ -4,7 +4,7 @@ from edc_base.model_fields.custom_fields import OtherCharField
 from edc_base.model_managers import HistoricalRecords
 from edc_base.model_mixins import BaseUuidModel
 from edc_base.model_validators import date_not_future
-from edc_base.sites import CurrentSiteManager
+from ..managers import CurrentSiteManager
 from edc_constants.choices import YES_NO, YES_NO_NA
 from edc_visit_tracking.managers import CrfModelManager
 

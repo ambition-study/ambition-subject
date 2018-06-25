@@ -4,7 +4,7 @@ from django.db.models.deletion import PROTECT
 from edc_base.model_managers import HistoricalRecords
 from edc_base.model_mixins import BaseUuidModel
 from edc_base.model_validators import date_not_future, datetime_not_future
-from edc_base.sites import CurrentSiteManager
+from ..managers import CurrentSiteManager
 from edc_constants.choices import YES_NO
 from edc_visit_tracking.managers import CrfModelManager
 
@@ -77,6 +77,13 @@ class Week2(ClinicalAssessmentModelMixin, CrfModelMixin):
         choices=YES_NO)
 
     discharge_date = models.DateField(
+        validators=[date_not_future],
+        null=True,
+        blank=True)
+
+    research_discharge_date = models.DateField(
+        verbose_name='On which date did the research team feel the patient was well '
+        'enough to go home?',
         validators=[date_not_future],
         null=True,
         blank=True)
