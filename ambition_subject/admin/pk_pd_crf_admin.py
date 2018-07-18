@@ -95,8 +95,8 @@ class PkPdCrfAdmin(CrfModelAdminMixin, admin.ModelAdmin):
         ('Fluconazole', {
             'fields': (
                 'fluconazole_dose',
-                'fluconazole_dose_datetime',
                 'fluconazole_dose_given',
+                'fluconazole_dose_datetime',
                 'fluconazole_dose_reason_missed')}),
         audit_fieldset_tuple
     )

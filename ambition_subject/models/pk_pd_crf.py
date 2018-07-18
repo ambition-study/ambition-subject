@@ -35,10 +35,10 @@ class PkPdCrf(CrfModelMixin):
 
     full_ambisome_dose_given = models.CharField(
         verbose_name='Was the entire Ambisome dose given?',
-        choices=YES_NO,
-        max_length=5,
-        null=True,
-        blank=True)
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
+        max_length=11,
+        null=True)
 
     flucytosine_dose = models.IntegerField(
         verbose_name='Flucytosine dose?',
@@ -48,10 +48,10 @@ class PkPdCrf(CrfModelMixin):
 
     flucytosine_dose_one_given = models.CharField(
         verbose_name='Flucytosine <u>DOSE&nbsp;1</u> given? ',
-        choices=YES_NO,
-        max_length=5,
-        null=True,
-        blank=True)
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
+        max_length=11,
+        null=True)
 
     flucytosine_dose_one_datetime = models.DateTimeField(
         verbose_name=mark_safe(
@@ -61,10 +61,10 @@ class PkPdCrf(CrfModelMixin):
 
     flucytosine_dose_two_given = models.CharField(
         verbose_name='Flucytosine <u>DOSE&nbsp;2</u> given? ',
-        choices=YES_NO,
-        max_length=5,
-        null=True,
-        blank=True)
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
+        max_length=11,
+        null=True)
 
     flucytosine_dose_two_datetime = models.DateTimeField(
         verbose_name=mark_safe(
@@ -74,10 +74,10 @@ class PkPdCrf(CrfModelMixin):
 
     flucytosine_dose_three_given = models.CharField(
         verbose_name='Flucytosine <u>DOSE&nbsp;3</u> given? ',
-        choices=YES_NO,
-        max_length=5,
-        null=True,
-        blank=True)
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
+        max_length=11,
+        null=True)
 
     flucytosine_dose_three_datetime = models.DateTimeField(
         verbose_name=mark_safe(
@@ -87,10 +87,10 @@ class PkPdCrf(CrfModelMixin):
 
     flucytosine_dose_four_given = models.CharField(
         verbose_name='Flucytosine <u>DOSE&nbsp;4</u> given? ',
-        choices=YES_NO,
-        max_length=5,
-        null=True,
-        blank=True)
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
+        max_length=11,
+        null=True)
 
     flucytosine_dose_four_datetime = models.DateTimeField(
         verbose_name=mark_safe(
@@ -112,8 +112,7 @@ class PkPdCrf(CrfModelMixin):
 
     fluconazole_dose_given = models.CharField(
         verbose_name='Was the Fluconazole dose given?',
-        choices=YES_NO_NA,
-        default=NOT_APPLICABLE,
+        choices=YES_NO,
         max_length=11,
         null=True,)
 
@@ -166,10 +165,10 @@ class PkPdCrf(CrfModelMixin):
 
     blood_sample_missed = models.CharField(
         verbose_name='Were any blood samples missed?',
-        choices=YES_NO,
-        max_length=5,
-        null=True,
-        blank=True)
+        choices=YES_NO_NA,
+        default=NOT_APPLICABLE,
+        max_length=11,
+        null=True)
 
     blood_sample_reason_missed = models.TextField(
         verbose_name='If any blood samples missed, provide reason',
